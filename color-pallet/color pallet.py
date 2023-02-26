@@ -5,7 +5,7 @@ import random
 class ColorPallet:
 	rgb = ['a','b','c','d','e','f','1','2','3','4','5','6','7','8','9','0']
 
-	def colorGenerator(self):
+	def colorGenerator(self):# generates a random HexCode
 		self.color = "#"
 		for i in range(6):
 			self.color+=random.choice(ColorPallet.rgb)
@@ -14,9 +14,9 @@ class ColorPallet:
 		self.hex_entry.delete(0,END)
 		self.hex_entry.insert(0,self.color)
 		self.hex_entry.focus()
-		return self.color
+		return self.color # return the code to the function
 
-	def colorFind(self):
+	def colorFind(self): # find the color with HexCode input
 		try:
 			self.f1.config(bg =self.hex_entry.get())
 			self.color_label.config(text = self.hex_entry.get(),bg = self.hex_entry.get())
@@ -58,5 +58,5 @@ class ColorPallet:
 		self.root.mainloop()
 
 if __name__ == "__main__":
-	root = Tk()
+	root = Tk() # create instance for the class Tk()
 	ColorPallet(root)
